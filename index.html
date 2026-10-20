@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#080d11" />
+    <meta name="description" content="A small voyage into something immense. Explore the Sun, Mercury, Venus, and Earth in StarForge, an interactive 3D observatory." />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>StarForge — A small voyage into something immense</title>
+  </head>
+  <body>
+    <div id="app">
+      <div id="universe" aria-label="Interactive 3D solar system"></div>
+      <div class="scene-shade" aria-hidden="true"></div>
+      <div class="grain" aria-hidden="true"></div>
+
+      <header class="topbar">
+        <a class="brand" href="#earth" aria-label="StarForge home">
+          <svg class="brand-mark" viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d="M16 1v30M1 16h30M6 6l20 20M6 26 26 6" stroke="currentColor"/><path d="m16 5 2.4 8.6L27 16l-8.6 2.4L16 27l-2.4-8.6L5 16l8.6-2.4Z" fill="currentColor"/></svg>
+          <span>STARFORGE<span class="brand-sub">A FIELD GUIDE TO THE INFINITE</span></span>
+        </a>
+        <nav class="main-nav" aria-label="Main navigation">
+          <button id="explore-nav" class="nav-item active" aria-pressed="true">Explore</button>
+          <button id="map-nav" class="nav-item" aria-pressed="false">Solar map</button>
+          <button id="journal-nav" class="nav-item">Field journal <span id="journal-count" class="count">0</span></button>
+        </nav>
+        <div class="top-actions">
+          <span class="live-status"><i></i> YOUR OWN PACE</span>
+          <button id="sound-button" class="icon-button" aria-label="Enable ambient sound" aria-pressed="false" title="Ambient sound"><span data-icon="sound-off"></span></button>
+          <button id="help-button" class="icon-button" aria-label="How to explore" title="How to explore"><span data-icon="help"></span></button>
+        </div>
+      </header>
+
+      <main>
+        <section class="planet-intro" aria-labelledby="planet-title">
+          <div class="eyebrow"><span class="tiny-star">✦</span> <span id="planet-eyebrow">THE INNER WORLDS</span><span class="eyebrow-line"></span><span id="planet-index">03 / 03</span></div>
+          <h1 id="planet-title">Earth<span class="title-dot">.</span></h1>
+          <p id="planet-poem" class="planet-poem">Somewhere in the vastness,<br>there is a place called home.</p>
+          <p id="planet-description" class="planet-description">An ocean world wrapped in a thin blue veil. Every life we’ve ever known is here, on this small, extraordinary planet.</p>
+          <div class="planet-facts" id="planet-facts"></div>
+          <button class="primary-button" id="enter-world"><span data-icon="map"></span><span id="enter-world-label">Enter this world</span><span data-icon="arrow-right"></span></button>
+          <button class="secondary-button" id="discover-button"><span data-icon="sparkle"></span><span>Look a little closer</span><span data-icon="arrow-right"></span></button>
+          <div class="discovery-count"><span class="small-dots" id="discovery-dots"></span><span id="discovery-count">3 things to discover</span></div>
+        </section>
+
+        <section id="map-intro" class="map-intro" hidden>
+          <div class="eyebrow"><span class="tiny-star">✦</span> A NEIGHBORHOOD OF WONDERS</div>
+          <h1>The inner<br><em>worlds.</em></h1>
+          <p>Four places. Four very different stories.<br>Choose a world and make your way there.</p>
+          <span class="map-scale">ILLUSTRATIVE ORBITS · DISTANCES COMPRESSED</span>
+        </section>
+
+        <div class="location-tag"><span class="location-cross">+</span><div><span id="location-name">EARTH</span><span id="location-sub">SOL SYSTEM / TERRESTRIAL PLANET</span></div></div>
+        <div id="hotspots" aria-label="Discoveries on this world"></div>
+        <div id="map-labels" aria-label="Solar map destinations" hidden></div>
+        <div class="view-switch" id="view-switch" aria-label="Planet view"></div>
+
+        <div class="scene-tools" aria-label="View controls">
+          <button class="icon-button" id="zoom-in" aria-label="Move closer" title="Move closer (+)"><span data-icon="plus"></span></button>
+          <span class="tool-divider"></span>
+          <button class="icon-button" id="zoom-out" aria-label="Move farther away" title="Move farther away (−)"><span data-icon="minus"></span></button>
+          <span class="tool-divider"></span>
+          <button class="icon-button" id="reset-view" aria-label="Reset view" title="Reset view (R)"><span data-icon="reset"></span></button>
+          <span class="tool-divider"></span>
+          <button class="icon-button" id="cinema-button" aria-label="Enter quiet view" aria-pressed="false" title="Quiet view (F)"><span data-icon="expand"></span></button>
+        </div>
+
+        <div class="view-caption"><span class="orbit-symbol">◎</span><span id="view-caption">A familiar world. An entirely new perspective.</span></div>
+        <div id="travel-status" class="travel-status" role="status" hidden><span class="travel-line"></span><span id="travel-text">Charting a course</span><span class="travel-line"></span></div>
+        <div class="toast" id="toast" role="status"></div>
+        <button class="exit-quiet" id="exit-quiet" hidden><span data-icon="collapse"></span> Back to exploring <kbd>Esc</kbd></button>
+      </main>
+
+      <footer class="voyage-footer">
+        <div class="destination-label"><span class="eyebrow">WHERE TO NEXT?</span><span>A little curiosity goes a long way.</span></div>
+        <nav class="destination-tray" id="destination-tray" aria-label="Choose a destination"></nav>
+        <div class="footer-bottom">
+          <div class="gesture-hints"><span><span data-icon="mouse"></span> Drag to orbit</span><span><span data-icon="scroll"></span> Scroll to approach</span><span class="pin-hint"><span class="hint-pin"></span> Follow your curiosity</span></div>
+          <div class="playback"><button id="motion-button" aria-label="Pause rotation" aria-pressed="false"><span data-icon="pause"></span><span id="motion-label">Gentle drift</span></button><span class="footer-separator"></span><button id="about-button">A note on scale <span data-icon="info"></span></button></div>
+        </div>
+      </footer>
+
+      <section id="expedition" class="expedition-ui" aria-label="World expedition" hidden>
+        <button id="return-orbit" class="return-orbit"><span data-icon="map"></span> Return to orbit <span>↗</span></button>
+        <div class="expedition-heading">
+          <div class="eyebrow"><span class="tiny-star">✦</span><span id="exp-body">EARTH</span><span class="eyebrow-line"></span> FIELD EXPEDITION</div>
+          <h1 id="exp-title">The breathing coast.</h1>
+          <p id="exp-invitation"></p>
+          <span id="exp-subtitle" class="exp-subtitle"></span>
+        </div>
+        <div class="exp-compass" aria-label="Viewing direction"><span>W</span><i></i><span id="exp-heading">000°</span><i></i><span>E</span></div>
+        <div class="exp-instruments">
+          <div><span id="exp-altitude-label">ABOVE LOCAL GROUND</span><strong id="exp-altitude">0 m</strong></div>
+          <div><span id="exp-medium">REFERENCE ENVIRONMENT</span><p id="exp-reference"></p></div>
+          <button id="exp-evidence">About this environment <span data-icon="info"></span></button>
+          <button id="exp-lamp" aria-pressed="true" hidden>Observer light · on</button>
+        </div>
+        <div id="exp-markers" aria-label="Places to explore"></div>
+        <div id="exp-transit" class="exp-transit" role="status" hidden><span class="exp-transit-dot"></span><span id="exp-transit-label">Descending through the atmosphere</span><button id="exp-skip">Skip flight ↗</button></div>
+        <div class="exp-reticle" aria-hidden="true"><i></i><i></i></div>
+        <div id="exp-nearby" class="exp-nearby" hidden><span class="tiny-star" aria-hidden="true">✦</span><div><small>A LITTLE CURIOSITY, REWARDED</small><span id="exp-nearby-name"></span></div><button id="exp-observe">Observe <span aria-hidden="true">↗</span></button></div>
+        <div class="exp-route" id="exp-route" hidden>
+          <div class="eyebrow">LET SOMETHING CATCH YOUR EYE</div>
+          <div id="exp-route-options"></div>
+          <p>Choose a signal for an assisted flight. Move or drag to take the controls.</p>
+        </div>
+        <div class="exp-touch-pad" aria-label="Movement controls">
+          <button data-move="KeyW" aria-label="Move forward">↑</button>
+          <button data-move="KeyA" aria-label="Move left">←</button>
+          <button data-move="KeyS" aria-label="Move backward">↓</button>
+          <button data-move="KeyD" aria-label="Move right">→</button>
+        </div>
+        <div class="exp-height-controls"><button data-move="KeyE" aria-label="Rise">↑<span>Rise</span></button><button data-move="KeyQ" aria-label="Descend">↓<span>Lower</span></button><button data-move="Space" id="exp-hop" aria-label="Hop" hidden>↑<span>Hop</span></button></div>
+        <div class="exp-deck">
+          <div class="exp-mode" aria-label="Exploration mode"><button id="exp-glide" aria-pressed="true">Glide</button><button id="exp-walk" aria-pressed="false">Walk</button><button id="exp-solar-filter" aria-pressed="false" hidden>Filtered light</button></div>
+          <button id="exp-layer" class="exp-layer">Above the clouds <span>↑</span></button>
+          <button id="exp-ocean" class="exp-layer exp-ocean" hidden>Dive into the sea <span aria-hidden="true">↓</span></button>
+          <button id="exp-route-button" class="exp-route-button" aria-expanded="false"><span data-icon="sparkle"></span> Follow a signal <span>↗</span></button>
+        </div>
+        <div class="exp-bottom"><span id="exp-controls-hint"><kbd>W A S D</kbd> move <span>·</span> drag to look <span>·</span> <kbd>E / Q</kbd> rise & lower <span>·</span> <kbd>Shift</kbd> cruise</span><span id="exp-progress">0 / 3 FIELD NOTES</span></div>
+        <div class="exp-evidence-label" id="exp-evidence-label">REPRESENTATIVE LANDSCAPE · VIRTUAL EXPLORER</div>
+      </section>
+
+      <div id="entry-veil" class="entry-veil" hidden><span class="loading-star">✦</span><span id="entry-message">Leaving orbit</span><small>A different perspective is waiting.</small></div>
+
+      <dialog id="field-note-dialog" class="field-note-dialog" aria-labelledby="field-note-title">
+        <button class="dialog-close icon-button" data-close aria-label="Close field note"><span data-icon="close"></span></button>
+        <div class="eyebrow"><span class="tiny-star">✦</span><span id="field-note-location"></span></div>
+        <span class="field-note-symbol" aria-hidden="true">◎</span>
+        <h2 id="field-note-title"></h2>
+        <p id="field-note-text"></p>
+        <div class="field-note-evidence"><span>THE EVIDENCE & THE INTERPRETATION</span><p id="field-note-evidence"></p></div>
+        <a id="field-note-source" class="field-source" target="_blank" rel="noopener noreferrer">Read the scientific reference <span data-icon="external"></span></a>
+        <button class="primary-button" data-close>Keep exploring <span data-icon="arrow-right"></span></button>
+      </dialog>
+
+      <dialog id="environment-dialog" class="info-dialog" aria-labelledby="environment-title">
+        <button class="dialog-close icon-button" data-close aria-label="Close environment information"><span data-icon="close"></span></button>
+        <div class="eyebrow">THE EVIDENCE & THE INTERPRETATION</div>
+        <h2 id="environment-title"></h2><p id="environment-evidence"></p>
+        <p>The explorer is a fictional, protected observer. Assisted flights compress travel time. Surface detail is stable across visits, but is not georeferenced to the orbital map. The transition moves between two scales of representation.</p>
+        <a id="environment-source" class="field-source" target="_blank" rel="noopener noreferrer">Scientific reference <span data-icon="external"></span></a>
+        <p class="info-footnote">Explore freely. There is always a way back to orbit.</p>
+      </dialog>
+
+      <dialog id="discovery-dialog" class="discovery-dialog" aria-labelledby="discovery-title">
+        <button class="dialog-close icon-button" data-close aria-label="Close discovery"><span data-icon="close"></span></button>
+        <div class="eyebrow" id="discovery-location"></div>
+        <div class="discovery-illustration" id="discovery-illustration" aria-hidden="true"></div>
+        <div class="eyebrow discovery-number" id="discovery-number"></div>
+        <h2 id="discovery-title"></h2>
+        <p id="discovery-body"></p>
+        <div class="discovery-stat"><strong id="discovery-stat"></strong><span id="discovery-stat-label"></span></div>
+        <div class="discovery-source"><span data-icon="check"></span> Added to your field journal <a id="discovery-source" target="_blank" rel="noopener noreferrer">NASA reference <span data-icon="external"></span></a></div>
+        <button class="primary-button" id="next-discovery">Keep looking <span data-icon="arrow-right"></span></button>
+      </dialog>
+
+      <dialog id="journal-dialog" class="journal-dialog" aria-labelledby="journal-title">
+        <button class="dialog-close icon-button" data-close aria-label="Close field journal"><span data-icon="close"></span></button>
+        <div class="eyebrow"><span class="tiny-star">✦</span> LITTLE MOMENTS OF DISCOVERY</div>
+        <h2 id="journal-title">Your field journal<span class="title-dot">.</span></h2>
+        <p class="journal-description">A few things to carry home from the cosmos.</p>
+        <div class="journal-progress"><span id="journal-progress-label">0 of 12 observations</span><div><i id="journal-progress-bar"></i></div></div>
+        <div id="journal-entries"></div>
+      </dialog>
+
+      <dialog id="info-dialog" class="info-dialog" aria-labelledby="info-title">
+        <button class="dialog-close icon-button" data-close aria-label="Close information"><span data-icon="close"></span></button>
+        <div class="eyebrow"><span class="tiny-star">✦</span> A SMALL VOYAGE INTO SOMETHING IMMENSE</div>
+        <h2 id="info-title">Make yourself<br>at home in space.</h2>
+        <div class="info-tabs" role="tablist" aria-label="Information"><button id="controls-tab" role="tab" aria-selected="true" aria-controls="controls-panel">The essentials</button><button id="science-tab" role="tab" aria-selected="false" aria-controls="science-panel">Science & credits</button></div>
+        <div id="controls-panel" role="tabpanel" aria-labelledby="controls-tab">
+          <div class="control-row"><span data-icon="map"></span><div><strong>Step into a world.</strong><p>Choose “Enter this world” for a field expedition. Use WASD to move, drag or arrow keys to look, E / Q to rise and lower, and Shift to cruise. Walk on solid ground and use Space to hop. “Follow a signal” offers an assisted flight. Escape returns to orbit.</p></div></div>
+          <div class="control-row"><span data-icon="sparkle"></span><div><strong>Slip beneath the waves.</strong><p>On Earth, descend straight into the ocean or choose “Dive into the sea.” Swim at the same speed as flight, following your gaze. Rise with E or the on-screen arrows to surface. Select After Dark before entering for a moonlit coast, and follow “Lanterns in the current” to meet the crystal jellies. Sound is optional.</p></div></div>
+          <div class="control-row"><span data-icon="mouse"></span><div><strong>Go around. Get closer.</strong><p>Drag to orbit. Scroll or pinch to approach. On a keyboard, use the arrow keys to orbit and + / − to zoom.</p></div></div>
+          <div class="control-row"><span data-icon="sparkle"></span><div><strong>Let curiosity lead.</strong><p>Follow the glowing markers or choose “Look a little closer.” Every observation finds a home in your journal.</p></div></div>
+          <div class="control-row"><span data-icon="map"></span><div><strong>A change of perspective.</strong><p>Choose a destination below, or open the solar map. Press F for a quiet view, R to reset, and Space to pause the drift.</p></div></div>
+          <p class="info-footnote">No route to finish. No hurry to get there.<br>Your journal stays in this browser, ready for your next visit.</p>
+        </div>
+        <div id="science-panel" role="tabpanel" aria-labelledby="science-tab" hidden>
+          <p>Field expeditions are representative environments informed by the supplied research report and its scientific references. Local terrain, vegetation, clouds, and solar structures are procedural interpretations, not georeferenced reconstructions. Each environment has its own evidence panel. The Sun has no solid landing surface; Mercury has no ordinary atmospheric flight. Fictional protected observers make otherwise inaccessible environments explorable.</p>
+          <p>Earth’s sea is an imagined temperate Pacific habitat. <a href="https://www.montereybayaquarium.org/animals-the-ocean/animals-a-to-z/northern-anchovy" target="_blank" rel="noopener noreferrer">Northern anchovies</a> and <a href="https://www.montereybayaquarium.org/animals-the-ocean/animals-a-to-z/crystal-jelly" target="_blank" rel="noopener noreferrer">crystal jellies</a> appear at representative sizes. Brief jelly-rim flashes illustrate a disturbance response. After Dark uses a composed moonlit sky, with an optional observer light underwater. Water clarity, animal motion, and the synthesized ocean soundscape are interpretations.</p>
+          <p>This is an exploratory portrait of our solar neighborhood. Body sizes, orbital distances, travel times, and rotation speeds are adjusted for a comfortable journey. Positions are composed, not live ephemerides. Lighting is arranged for viewing; the starfield is illustrative.</p>
+          <p>Discovery markers introduce whole-world themes, not precise geographic locations. The Sun’s warm color and moving texture are an artistic interpretation. Venus’ surface view is a colorized, radar-derived map beneath an illustrated cloud layer.</p>
+          <p>Facts are rounded and checked against <a href="https://science.nasa.gov/sun/facts/" target="_blank" rel="noopener noreferrer">NASA’s Sun</a>, <a href="https://science.nasa.gov/mercury/facts/" target="_blank" rel="noopener noreferrer">Mercury</a>, <a href="https://science.nasa.gov/venus/venus-facts/" target="_blank" rel="noopener noreferrer">Venus</a>, and <a href="https://science.nasa.gov/earth/facts/" target="_blank" rel="noopener noreferrer">Earth</a> references. “Rotation” means a turn relative to the stars, not a sunrise-to-sunrise solar day.</p>
+          <p>Planet maps by <a href="https://www.solarsystemscope.com/textures/" target="_blank" rel="noopener noreferrer">Solar System Scope</a>, based on NASA imagery, used under <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer">CC BY 4.0</a>. Maps are rendered with custom lighting and color treatment. The optional ambient sound is a composed soundscape; sound does not travel through the vacuum of space.</p>
+          <p>Ground detail uses <a href="https://polyhaven.com/a/rocky_terrain_02" target="_blank" rel="noopener noreferrer">Rocky Terrain 02 by Amal Kumar / Poly Haven</a>, released under CC0. This terrestrial material is rescaled and recolored for artistic detail; it is not measured rock imagery from Mercury or Venus.</p>
+          <div class="milestone-note">CHAPTER 01 <span>The Sun & the inner worlds</span></div>
+        </div>
+      </dialog>
+
+      <div class="loading-screen" id="loading-screen"><svg class="loading-star" viewBox="0 0 32 32" fill="none"><path d="M16 1v30M1 16h30M6 6l20 20M6 26 26 6" stroke="currentColor"/></svg><span>Finding our place in the universe</span><span class="loading-progress"><i id="loading-progress"></i></span></div>
+      <div class="render-error" id="render-error" hidden><span class="tiny-star">✦</span><h2>A window to space<br>needs a little help.</h2><p id="render-error-message">This experience needs WebGL. Please enable hardware acceleration or try a recent browser.</p><button class="primary-button" onclick="location.reload()">Try again <span>↗</span></button></div>
+      <div id="announcer" class="sr-only" aria-live="polite"></div>
+    </div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

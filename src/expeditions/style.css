@@ -1,0 +1,88 @@
+.secondary-button{display:flex;align-items:center;gap:10px;color:#a7bcb0;font-size:10px;padding:14px 0 3px;min-height:33px}
+.secondary-button svg{width:13px;height:13px}.secondary-button:hover{color:#e1eedc}
+body.in-expedition .planet-intro,body.in-expedition .map-intro,body.in-expedition .location-tag,body.in-expedition #hotspots,body.in-expedition #map-labels,body.in-expedition .view-switch,body.in-expedition .scene-tools,body.in-expedition .view-caption,body.in-expedition .voyage-footer,body.in-expedition .main-nav,body.in-expedition .live-status,body.expedition-entering .planet-intro,body.expedition-entering .voyage-footer,body.expedition-entering #hotspots{display:none!important}
+body.in-expedition .scene-shade{background:linear-gradient(180deg,#0610188c 0%,transparent 34%,transparent 64%,#061018b0 100%)}
+body.in-expedition .topbar{height:85px;border-color:#f1eee027;pointer-events:none}body.in-expedition .topbar button,body.in-expedition .topbar .brand{pointer-events:auto}body.in-expedition .top-actions{gap:16px}
+body.in-expedition .grain{opacity:.018}body.in-expedition .toast{bottom:205px;z-index:40}
+.expedition-ui{position:absolute;inset:0;overflow:clip;pointer-events:none;color:#f2f0e4;z-index:8;text-shadow:0 1px 8px #0004}
+.expedition-ui button,.expedition-ui a{pointer-events:auto}
+.exp-ocean{color:#d8ebe5;border-color:#b1d6ce66;background:#143432cc}
+#exp-lamp{margin-top:7px;color:#c8ded5}
+.exp-route{max-height:calc(100svh - 245px);overflow:auto}
+.return-orbit{position:absolute;top:23px;left:50%;transform:translateX(-50%);border:1px solid #e3e8d942;background:#101c2580;border-radius:4px;padding:12px 17px;font-size:10px;display:flex;gap:12px;align-items:center;backdrop-filter:blur(14px)}
+.return-orbit svg{width:17px;height:17px}.return-orbit:hover{background:#26392eaa}
+.expedition-heading{position:absolute;left:4.5%;top:125px;max-width:480px}
+.expedition-heading .eyebrow{font-size:8px;color:#d6e4d6;letter-spacing:1.5px}
+.expedition-heading h1{font:400 60px/1.05 var(--serif);margin:16px 0 9px;letter-spacing:-.5px}
+.expedition-heading p{font:400 24px/1.2 var(--serif);margin:0 0 12px;color:#e1e3d6}
+.exp-subtitle{font-size:9px;color:#c1cdbf;letter-spacing:.6px;display:block}
+.exp-compass{position:absolute;left:50%;top:107px;transform:translateX(-50%);display:flex;gap:22px;align-items:center;font-size:8px;letter-spacing:2px;color:#e7ecdfb0}
+.exp-compass i{height:7px;width:1px;background:#ececda4a}.exp-compass span:nth-of-type(2){font-size:10px;color:#e8ebdb;font-variant-numeric:tabular-nums;min-width:35px;text-align:center}
+.exp-instruments{position:absolute;right:4.5%;top:143px;max-width:240px;text-align:right}
+.exp-instruments>div{margin-bottom:17px}.exp-instruments>div>span{display:block;font-size:7px;letter-spacing:1.5px;color:#e4e6d5b3}
+.exp-instruments strong{display:block;font:400 37px/1.2 var(--serif);margin-top:5px;font-variant-numeric:tabular-nums}
+.exp-instruments p{font-size:10px;color:#e3e6d3;margin:8px 0 0}
+.exp-instruments button{display:flex;align-items:center;gap:6px;font-size:8px;color:#d6dfcb;margin-left:auto;border-bottom:1px solid #e0e7cc3b;padding:6px 0}
+.exp-instruments svg{width:11px;height:11px}
+.exp-reticle{position:absolute;top:50%;left:50%;width:14px;height:14px;transform:translate(-50%,-50%);opacity:.5}
+.exp-reticle i:first-child{position:absolute;left:0;top:6px;width:14px;height:1px;background:#e6f0e5}.exp-reticle i:last-child{position:absolute;left:6px;top:0;width:1px;height:14px;background:#e6f0e5}
+.exp-transit{position:absolute;top:46%;left:50%;transform:translate(-50%,-50%);border:1px solid #c4dac13d;background:#14231cc4;backdrop-filter:blur(12px);border-radius:4px;display:flex;align-items:center;gap:13px;padding:14px 17px;font-size:11px;white-space:nowrap;color:#dce6d2}
+.exp-transit-dot{width:5px;height:5px;background:#d0dcbf;border-radius:50%;box-shadow:0 0 12px #dce2cb}
+.exp-transit button{font-size:9px;color:#c9d9b5;border-left:1px solid #a1bb9244;padding-left:13px;margin-left:8px}
+.exp-deck{position:absolute;bottom:55px;left:4.5%;right:4.5%;display:flex;justify-content:center;gap:18px;align-items:center;border-top:1px solid #e5e9d836;padding-top:19px}
+.exp-mode{display:flex;gap:3px;padding:4px;border:1px solid #dae9d42f;background:#101c20a8;backdrop-filter:blur(20px);border-radius:5px}
+.exp-mode button{font-size:11px;padding:12px 24px;border-radius:3px;color:#c6d5c6}
+.exp-mode button[aria-pressed=true]{background:#bed0b9;color:#15251e;text-shadow:none}
+.exp-mode button:disabled{opacity:.4}
+.exp-layer{padding:17px 22px;border:1px solid #dae9d42f;border-radius:5px;background:#101c20a8;backdrop-filter:blur(20px);font-size:11px;display:flex;gap:20px;align-items:center}
+.exp-route-button{display:flex;align-items:center;gap:18px;background:#c2d0b7;padding:17px 22px;color:#243426;border-radius:4px;font-size:11px;text-shadow:none}
+.exp-route-button svg{width:15px;height:15px}.exp-route-button:hover{background:#e0e8cc}
+.exp-bottom{position:absolute;bottom:26px;left:4.5%;right:4.5%;display:flex;justify-content:space-between;align-items:center;color:#d4ddc8;font-size:8px;letter-spacing:.3px}
+.exp-bottom>span:first-child{display:flex;align-items:center;gap:10px}.exp-bottom kbd{font:8px Arial;letter-spacing:1px;border:1px solid #cfdbc53a;border-radius:3px;padding:3px 5px;background:#15231b77}.exp-bottom>span:last-child{font-size:8px;letter-spacing:1px}
+.exp-evidence-label{position:absolute;bottom:8px;left:50%;transform:translateX(-50%);font-size:6px;letter-spacing:1.2px;white-space:nowrap;color:#cbd3c191}
+.exp-height-controls{position:absolute;right:4.5%;bottom:165px;display:flex;flex-direction:column;gap:6px}
+.exp-height-controls button{display:flex;gap:10px;align-items:center;justify-content:center;border:1px solid #e3e9d53b;border-radius:4px;background:#10201e8f;backdrop-filter:blur(12px);width:72px;min-height:40px;font-size:18px}
+.exp-height-controls span{font-size:8px}.exp-touch-pad{display:none}
+#exp-markers{position:absolute;inset:0;pointer-events:none}
+.field-marker{position:absolute;display:flex;align-items:center;gap:10px;transform:translate(-50%,-100%);padding:12px;color:#eff4dc;font-size:10px;white-space:nowrap}
+.field-marker>i{width:9px;height:9px;border:1px solid #e1ead1;border-radius:100%;box-shadow:0 0 0 6px #d5e5c719,0 0 25px #dce5c83b;background:#d5e5c755}
+.field-marker>span{padding:8px 10px;background:#12211b99;border:1px solid #c7d7b835;border-radius:3px;backdrop-filter:blur(10px);text-align:left}
+.field-marker small{display:block;font-size:7px;color:#b8ceb6;margin-top:5px;letter-spacing:.5px}
+.field-marker:hover>span{background:#263e2cc9;border-color:#e0ecc37d}
+.exp-nearby{position:absolute;left:50%;bottom:142px;transform:translateX(-50%);display:flex;align-items:center;gap:16px;background:#12231ed9;border:1px solid #bbd6b34a;backdrop-filter:blur(18px);border-radius:6px;padding:16px 20px;min-width:400px}
+.exp-nearby>div{display:flex;flex-direction:column;gap:7px}.exp-nearby small{font-size:6px;letter-spacing:1.2px;color:#a3bd9c}.exp-nearby>div>span{font-size:12px;color:#e0e8d3}.exp-nearby button{margin-left:auto;border:1px solid #c4d5b453;border-radius:3px;padding:10px 12px;display:flex;gap:10px;font-size:10px}.exp-nearby button:hover{background:#b5cf9822}
+.exp-route{position:absolute;bottom:136px;left:50%;transform:translateX(-50%);width:450px;background:#10201ef5;border:1px solid #b9d0a54a;border-radius:7px;backdrop-filter:blur(20px);padding:24px;pointer-events:auto;z-index:9}
+.exp-route .eyebrow{font-size:7px}.exp-route p{font-size:9px;line-height:1.7;color:#91a78e;margin-bottom:0}
+.exp-route-option{display:flex;align-items:center;justify-content:space-between;width:100%;text-align:left;padding:16px 0;border-bottom:1px solid #b5c9a51f;font-size:12px;color:#dce8ce}
+.exp-route-option>span:first-child{display:flex;gap:12px;align-items:center}.exp-route-option small{font-size:8px;color:#90ad83}.exp-route-option>span:last-child{color:#a9c197}
+.entry-veil{position:absolute;inset:0;z-index:35;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:22px;background:#0c1618;opacity:0;transition:opacity .55s;pointer-events:none}
+.entry-veil.visible{opacity:1}.entry-veil>span:nth-child(2){font:400 42px var(--serif);color:#d4dec8}.entry-veil small{font-size:10px;letter-spacing:1px;color:#8eaa91}
+.field-note-dialog{width:490px;padding:40px}.field-note-symbol{display:block;font-size:65px;color:#aac1a2;margin:24px 0 0;font-weight:100;line-height:1}
+.field-note-dialog h2{font-size:45px}.field-note-evidence{padding-top:20px;margin-top:25px;border-top:1px solid var(--line)}.field-note-evidence>span{font-size:7px;color:#9db592;letter-spacing:1.2px}.field-note-evidence p{font-size:10px;color:#8ea28d;line-height:1.8}
+.field-source{display:inline-flex;gap:8px;align-items:center;font-size:10px;color:#bbd3ab;margin:10px 0 25px;border-bottom:1px solid #bed3a144;padding-bottom:6px}.field-source svg{width:12px;height:12px}.field-note-dialog .primary-button{width:100%}
+.field-journal-heading{margin:32px 0 18px;font:400 30px var(--serif);color:#c8dbc0}.field-note-log{font-size:11px;padding:13px 0;width:100%;border-bottom:1px solid var(--line);display:flex;text-align:left;justify-content:space-between;gap:15px;color:#c8d9bf}.field-note-log small{font-size:8px;color:#829c7c;white-space:nowrap}
+@media(max-height:800px) and (min-width:901px){.planet-intro h1{font-size:85px}.planet-poem{font-size:23px}.planet-description{margin-bottom:15px}.planet-facts{margin-bottom:16px;padding-top:12px}.secondary-button{padding-top:10px;min-height:27px}.expedition-heading{top:110px}.expedition-heading h1{font-size:48px}.expedition-heading p{font-size:21px}.exp-instruments{top:120px}.exp-compass{top:100px}.exp-deck{bottom:48px;padding-top:14px}.exp-bottom{bottom:22px}}
+@media(max-width:900px){
+  .exp-deck:has(.exp-ocean:not([hidden])){display:grid;grid-template-columns:1fr 1fr;gap:6px}
+  .exp-deck:has(.exp-ocean:not([hidden])) .exp-mode{justify-content:center}
+  .exp-deck:has(.exp-ocean:not([hidden])) .exp-layer{justify-content:center;padding:12px 7px}
+  .exp-deck:has(.exp-ocean:not([hidden])) .exp-route-button{margin:0;padding:13px 7px;font-size:9px;gap:7px}
+  .expedition-ui:has(.exp-ocean:not([hidden])) .exp-instruments{bottom:350px}
+  .planet-intro .secondary-button{position:absolute;right:0;bottom:215px;pointer-events:auto;font-size:8px;gap:6px;min-height:35px;padding:9px 0}.planet-intro .secondary-button svg{width:11px;height:11px}.view-switch{bottom:263px;left:50%;right:auto;transform:translateX(-50%)}
+  body.in-expedition #app{height:100svh;min-height:550px}body.in-expedition{overflow:hidden}body.in-expedition .topbar{height:72px}body.in-expedition .brand-sub{display:none}body.in-expedition .brand{font-size:12px}body.in-expedition .brand-mark{width:21px;height:21px}body.in-expedition #help-button{display:none}
+  .return-orbit{top:23px;left:auto;right:60px;transform:none;padding:8px 10px;font-size:8px;gap:5px;border:0;background:none}.return-orbit svg{width:13px;height:13px}.return-orbit>span:last-child{display:none}
+  .expedition-heading{top:97px;left:6%;max-width:80%}.expedition-heading .eyebrow{font-size:6px;letter-spacing:1px;gap:6px}.expedition-heading .eyebrow-line{width:17px}.expedition-heading h1{font-size:38px;margin:13px 0 7px}.expedition-heading p{font-size:21px;max-width:300px}.exp-subtitle{font-size:7px;max-width:260px;line-height:1.6}
+  .exp-compass{top:78px;font-size:6px;gap:16px}.exp-compass span:nth-of-type(2){font-size:8px}.exp-instruments{top:auto;bottom:285px;right:6%;max-width:200px}.exp-instruments>div{margin-bottom:10px}.exp-instruments>div>span{font-size:6px;letter-spacing:1px}.exp-instruments strong{font-size:27px}.exp-instruments p{font-size:7px;line-height:1.6}.exp-instruments button{font-size:7px;padding:4px 0}.exp-instruments svg{width:10px;height:10px}
+  .exp-deck{bottom:49px;left:5%;right:5%;gap:7px;flex-wrap:wrap;padding-top:12px;justify-content:space-between}.exp-mode{padding:3px;gap:1px}.exp-mode button{font-size:9px;padding:10px 16px}.exp-layer{font-size:8px;gap:9px;padding:14px 11px}.exp-route-button{font-size:10px;justify-content:center;gap:16px;width:100%;padding:13px;margin-top:3px}.exp-route-button svg{width:13px;height:13px}
+  .exp-bottom{bottom:27px;left:5%;right:5%;font-size:7px}.exp-bottom>span:first-child{font-size:0;gap:0}.exp-bottom>span:first-child:before{content:'Drag to look · hold arrows to move';font-size:7px}.exp-bottom kbd,.exp-bottom>span:first-child>span{display:none}.exp-bottom>span:last-child{font-size:6px;letter-spacing:.8px}.exp-evidence-label{font-size:5px;letter-spacing:.6px;bottom:10px}
+  .exp-touch-pad{display:grid;position:absolute;bottom:171px;left:6%;grid-template-columns:repeat(3,40px);grid-template-rows:repeat(2,40px);gap:5px;pointer-events:auto}.exp-touch-pad button{border:1px solid #d8e6cc55;border-radius:5px;background:#10221faf;backdrop-filter:blur(12px);font-size:18px;touch-action:none}.exp-touch-pad button:first-child{grid-column:2}.exp-touch-pad button:nth-child(2){grid-column:1;grid-row:2}.exp-touch-pad button:nth-child(3){grid-column:2;grid-row:2}.exp-touch-pad button:nth-child(4){grid-column:3;grid-row:2}
+  .exp-height-controls{right:6%;bottom:171px;gap:5px}.exp-height-controls button{height:40px;min-height:40px;width:65px;touch-action:none;font-size:17px}.exp-height-controls span{font-size:7px}
+  .field-marker{font-size:8px;padding:9px;gap:8px;max-width:240px}.field-marker small{font-size:6px}.field-marker>span{padding:6px 8px}.field-marker>i{width:7px;height:7px}
+  .exp-nearby{bottom:280px;left:6%;right:6%;transform:none;min-width:0;padding:11px;gap:9px}.exp-nearby small{font-size:5px;letter-spacing:.6px}.exp-nearby>div>span{font-size:10px}.exp-nearby button{font-size:9px;padding:9px;gap:6px}
+  .exp-route{width:90%;bottom:157px;padding:20px;max-height:calc(100svh - 270px);overflow:auto}.exp-route-option{padding:16px 0;font-size:11px}.exp-route-option small{font-size:7px}.exp-route p{font-size:8px}
+  .exp-transit{top:45%;font-size:9px;padding:12px;gap:8px;max-width:90%;white-space:normal}.exp-transit button{font-size:8px;white-space:nowrap;padding-left:8px;margin-left:0}.exp-transit-dot{flex-shrink:0}
+  .entry-veil>span:nth-child(2){font-size:34px}.entry-veil small{font-size:8px}.field-note-dialog{padding:30px 25px}.field-note-dialog h2{font-size:37px}.field-note-symbol{font-size:48px}.field-note-evidence{margin-top:18px;padding-top:16px}.field-note-evidence p{font-size:9px}.field-note-dialog>p{font-size:11px}.field-source{font-size:9px}
+  body.in-expedition .toast{bottom:350px;font-size:9px}
+}
+@media(max-height:650px) and (max-width:900px){.expedition-heading{top:90px}.expedition-heading h1{font-size:30px}.expedition-heading p,.exp-subtitle{display:none}.exp-instruments{bottom:270px}.exp-instruments>div:nth-child(2){display:none}.exp-nearby{bottom:270px}.exp-transit{top:40%}}
+@media(max-height:650px) and (max-width:900px){.expedition-ui:has(.exp-ocean:not([hidden])) .exp-instruments{bottom:340px}}
